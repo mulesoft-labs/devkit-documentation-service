@@ -1,0 +1,12 @@
+{
+  "name": "mule-rest-service",
+  "version": "1.0",
+  "private": true,
+  "description": "Simple REST web service made for all the stuidio/devkit features",
+  "dependencies": {
+    "mongoose": "~3.8.7",
+    "express": "~3.4.8",
+    "colors": "~0.6.2",
+    "underscore": "~1.6.0"
+  }
+}
