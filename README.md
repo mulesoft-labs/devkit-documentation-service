@@ -4,9 +4,9 @@ REST Service in Node.js to be used by the devkit-documentation-connector project
 
 ## Requirements
 
-* Node.js v0.8+
+* Node.js
 * NPM
-* MongoDB //v TBD
+* MongoDB
 
 ## Installation
 
