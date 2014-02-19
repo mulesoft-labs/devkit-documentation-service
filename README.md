@@ -21,3 +21,24 @@ REST Service in Node.js to be used by the devkit-documentation-connector project
 
 4. Start the Node.js service
 	> node service.js
+
+## Service Paths
+
+Path | Method | Operation
+--- | --- | ---
+__/s1__ | | 
+/metadatatypes | GET | Get MetaData Keys
+/metadata | GET | Get MetaData
+/employee | GET | Query
+/employee | POST | Create
+/employee/{id} | GET | Retrieve
+/employee/{id} | PUT | Update
+/employee/{id} | DELETE | Delete
+__/s2__ | | 
+/metadatatypes | GET | Get MetaData Keys
+/metadata | GET | Get MetaData
+/pet | GET | Query
+/pet | POST | Create
+/pet/{id} | GET | Retrieve
+/pet/{id} | PUT | Update
+/pet/{id} | DELETE | Delete
