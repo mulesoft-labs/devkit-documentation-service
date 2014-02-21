@@ -1,4 +1,5 @@
 // Routes CRUD + Query helper
+var mongoose = require("mongoose");
 
 module.exports.query = function(req, res, next, entityModel) {
 	var q = null;
@@ -31,6 +32,7 @@ module.exports.retrieve = function(req, res, next, entityModel) {
 	try {
 		objId = mongoose.Types.ObjectId(req.params.id);
 	} catch (e) {
+		console.error("ObjectID is malformed: " + e);
 		return res.send(404);
 	}
 
@@ -49,6 +51,7 @@ module.exports.update = function(req, res, next, entityModel) {
 	try {
 		objId = mongoose.Types.ObjectId(req.params.id);
 	} catch (e) {
+		console.error("ObjectID is malformed: " + e);
 		return res.send(404);
 	}
 
@@ -66,6 +69,7 @@ module.exports.delete = function(req, res, next, entityModel) {
 	try {
 		objId = mongoose.Types.ObjectId(req.params.id);
 	} catch (e) {
+		console.error("ObjectID is malformed: " + e);
 		return res.send(404);
 	}
 
