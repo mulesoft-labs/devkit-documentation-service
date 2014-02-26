@@ -2,7 +2,6 @@
 	Author: Gustavo A. Alberola
 	Blog:   http://gustavoalberola.blogspot.com.ar/
 	Git:    https://github.com/galberola
-
 *******************************************************************************************************************/
 
 // initialization ============================================================================================
@@ -18,6 +17,7 @@ var mongoConnection = mongoose.connection;
 
 mongoConnection.on("error", function() {
 	console.log("Can not connect to MongoDB".red);
+	// Note: if the MongoDB connection drops down, it will invoke this event and will shut down the server
 	process.exit(0);
 });
 

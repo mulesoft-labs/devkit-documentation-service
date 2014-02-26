@@ -5,8 +5,8 @@ var _ = require("underscore")._;
 module.exports = function(app) {
 	console.log("Registering routes: metadata".yellow);
 
-	var s1Entities = ["employee"];
-	var s2Entities = ["pet"];
+	var s1Entities = ["employee","pet"];
+	var s2Entities = [];
 
 	app.get("/s1/metadatatypes", function(req, res, next) {
 		res.send(s1Entities);
