@@ -40,6 +40,7 @@ app.configure(function () {
 require("./routes/employee")(app);
 require("./routes/pet")(app);
 require("./routes/metadata")(app);
+require("./routes/query")(app);
 
 // launch app ================================================================================================
 var server = app.listen(port, function() {

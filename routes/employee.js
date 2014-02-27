@@ -8,9 +8,7 @@ module.exports = function registerEmployeeRoutes(app) {
 
 	var entityModel = mongoose.model("employee");
 
-	app.get("/s1/employee", function queryEmployee(req, res, next) {
-		routesCrud.query(req, res, next, entityModel);
-	});
+	// Query is implemented as a separated system with a unique entry point /s1/query
 
 	// Create
 	app.post("/s1/employee", function createEmployee(req, res, next) {

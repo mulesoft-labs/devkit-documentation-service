@@ -8,27 +8,25 @@ module.exports = function registerPetRoutes(app) {
 
 	var entityModel = mongoose.model("pet");
 
-	app.get("/s2/pet", function queryEmployee(req, res, next) {
-		routesCrud.query(req, res, next, entityModel);
-	});
+	// Query is implemented as a separated system with a unique entry point /s1/query
 
 	// Create
-	app.post("/s2/pet", function createEmployee(req, res, next) {
+	app.post("/s1/pet", function createEmployee(req, res, next) {
 		routesCrud.create(req, res, next, entityModel);
 	});
 
 	// Update
-	app.put("/s2/pet/:id", function updateEmployee(req, res, next) {
+	app.put("/s1/pet/:id", function updateEmployee(req, res, next) {
 		routesCrud.update(req, res, next, entityModel);
 	});
 
 	// Retrieve
-	app.get("/s2/pet/:id", function retrieveEmployee(req, res, next) {
+	app.get("/s1/pet/:id", function retrieveEmployee(req, res, next) {
 		routesCrud.retrieve(req, res, next, entityModel);
 	});
 
 	// Delete
-	app.delete("/s2/pet/:id", function deleteEmployee(req, res, next) {
+	app.delete("/s1/pet/:id", function deleteEmployee(req, res, next) {
 		routesCrud.delete(req, res, next, entityModel);
 	});
 }

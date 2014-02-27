@@ -3,15 +3,16 @@ var mongoose = require("mongoose");
 
 /*
  * SQL Defined in JSON: 
- * { "criteria": { "firstname" : {"&eq;" : "gustavo"} }, "limit" : 20, "skip" : 20, "fields" : "firstname lastname email"}
+ * { "entity": "employee", "criteria": { "firstname" : {"&eq;" : "gustavo"} }, "limit" : 20, "skip" : 20, "fields" : "firstname lastname email"}
  *
- * criteria: contains the json that will be used by the mongoose model to query
- * limit: contains the number of elements per page // No more than 100 allowed
- * skip: contains the number of elements to skip in the cursor to where start reading
- * fields: contains an array of strings witht the fields to be returned of the entity
+ * entity: 		(Mandatory) the entity model which will be queried
+ * criteria: 	(Optional) contains the json that will be used by the mongoose model to query
+ * limit: 		(Optional) (Default: 20) (Max: 100) contains the number of elements per page // No more than 100 allowed
+ * skip: 		(Optional) (Default: 0) contains the number of elements to skip in the cursor to where start reading
+ * fields: 		(Optional) contains an array of strings witht the fields to be returned of the entity
  */
 
-module.exports.query = function(req, res, next, entityModel) {
+module.exports.query = function(req, res, next) {
 	var q = {};
 	if (req.query.q) { // Query is optional
 		try {
@@ -19,8 +20,19 @@ module.exports.query = function(req, res, next, entityModel) {
 		} catch (e) {
 			res.send(400, "Not a valid JSON Query format");
 		}
+	} else { // Query is mandatory
+		res.send(400, "Query not provided");
 	}
 
+	// Retrieve the model using the entity in the query
+	entityModel = mongoose.model(q.entity);
+
+	// If the model does not exist, then the entity is not a valid type
+	if (!entityModel) {
+		res.send(400, "'" + q.entity + "' is not a valid entity type");
+	}
+
+	// If there is a criteria that is an _id, the content must be wrapped in ObjectId()
 	if (q.criteria && q.criteria._id) {
 		// Transform the String representation to ObjectId
 		q.criteria._id = mongoose.Types.ObjectId(q.criteria._id);
