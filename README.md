@@ -29,15 +29,11 @@ Path | Method | Operation
 __/s1__ | | 
 /metadatatypes | GET | Get MetaData Keys
 /metadata | GET | Get MetaData
-/employee | GET | Query
+/query | GET | Query using JSON Queries any entity
 /employee | POST | Create
 /employee/{id} | GET | Retrieve
 /employee/{id} | PUT | Update
 /employee/{id} | DELETE | Delete
-__/s2__ | | 
-/metadatatypes | GET | Get MetaData Keys
-/metadata | GET | Get MetaData
-/pet | GET | Query
 /pet | POST | Create
 /pet/{id} | GET | Retrieve
 /pet/{id} | PUT | Update
