@@ -1,6 +1,6 @@
 {
   "name": "mule-rest-service",
-  "version": "1.1",
+  "version": "1.1.0",
   "private": true,
   "description": "Simple REST web service made for all the stuidio/devkit features",
   "dependencies": {
